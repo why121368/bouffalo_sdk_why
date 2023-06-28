@@ -179,3 +179,5 @@ TODO
 ## Forum
 
 Bouffalolab Developer Forum: [https://bbs.bouffalolab.com/](https://bbs.bouffalolab.com/)
+
+本项目fork自[博流智能](https://github.com/bouffalolab/bouffalo_sdk.git)
