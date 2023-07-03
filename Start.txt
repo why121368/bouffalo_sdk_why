@@ -1,0 +1,17 @@
+Why@LEGION-Why MINGW64 /d/RISC_V/bouffalo_sdk_why (main)
+$ git branch why_test1
+
+Why@LEGION-Why MINGW64 /d/RISC_V/bouffalo_sdk_why (main)
+$ git push origin why_test1 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote:      https://github.com/why121368/bouffalo_sdk_why/pull/new/why_test1
+remote:
+To https://github.com/why121368/bouffalo_sdk_why.git
+ * [new branch]      why_test1 -> why_test1
+
+Why@LEGION-Why MINGW64 /d/RISC_V/bouffalo_sdk_why (main)
+$ git push --set-upstream  origin why_test1
+Everything up-to-date
+branch 'why_test1' set up to track 'origin/why_test1'.
+
