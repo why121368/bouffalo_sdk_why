@@ -5,3 +5,5 @@
 * flash文件里filedir也要改，build_out/目录名字_$...
 * Makefile里BOARD选项改g0(不是go呜呜呜)
 * Makefile里路径部分进几个子目录有几个..
+### 16:29 123456
+16545561ds1fds65f1s6d5f1
