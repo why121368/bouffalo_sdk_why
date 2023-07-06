@@ -1,49 +1,25 @@
-/**
- * @file bh1750.h
- * @brief
- *
- * Copyright (c) 2021 Bouffalolab team
- *
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.  The
- * ASF licenses this file to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance with the
- * License.  You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
- * License for the specific language governing permissions and limitations
- * under the License.
- *
- */
+/*
+    For more information, visit https://github.com/why121368/bouffalo_sdk_why.
+    Created by Henry Wang, at Harbin Institute of Technology, on July 6, 2023.
+*/
 
-#ifndef __BH1750_H__
-#define __BH1750_H__
-
-// IIC器件地址
-#define    BH1750_ADDR   0x23               // 定义器件在IIC总线中的从地址, 根据ADDR引脚不同修改：当ADDR引脚接GND或空置时地址�?0x23，接3.3V时地址�?0x5C
-#define    BH1750_POWER_DOWN   0x00
-#define    BH1750_POWER_ON     0x01
-#define    BH1750_RESET        0x07
-#define    BH1750_CONTINUOUS_HIGH_RES_MODE    0x10
-#define    BH1750_CONTINUOUS_HIGH_RES_MODE2   0x11
-#define    BH1750_CONTINUOUS_LOW_RES_MODE     0x13
-#define    BH1750_ONE_TIME_HIGH_RES_MODE      0x20
-#define    BH1750_ONE_TIME_HIGH_RES_MODE2     0x21
-#define    BH1750_ONE_TIME_LOW_RES_MODE       0x23
+#ifndef __LM75_H__
+#define __LM75_H__
 
 
+#define		LM75_ADDR		        0X48    // LM75的I2C从地址
+#define		LM75_REG_TEMP	    	0X00    // 保存温度数据的寄存器地址
+#define		LM75_REG_CONF		    0X01    // 保存配置信息的寄存器地址
+#define		LM75_REG_THYST		    0X02    // 保存迟滞温度值的寄存器地址
+#define		LM75_REG_TOS			0X03    // 保存报警温度的寄存器地址
 
 /*****************************************************************************
  ** 声明  全局函数
 ****************************************************************************/
-void     BH1750_Init(void);           // 初始化BH1750
-float    BH1750_GetData(void);        // 获取光照大小
+
+void     LM75_Init(void);           // 初始化BH1750
+float    LM75_GetData(void);        // 获取温度数值
 
 
 
-#endif /* __BH1750_H__ */
+#endif /* __LM75_H__ */
