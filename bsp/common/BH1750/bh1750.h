@@ -25,7 +25,7 @@
 #define __BH1750_H__
 
 // IIC器件地址
-#define    BH1750_ADDR   0x23               // 定义器件在IIC总线中的从地址, 根据ADDR引脚不同修改：当ADDR引脚接GND或空置时地址�?0x23，接3.3V时地址�?0x5C
+#define    BH1750_ADDR   0x23               // 定义器件在IIC总线中的从地址, 根据ADDR引脚不同修改：当ADDR引脚接GND或空置时地址为0x23，接3.3V时地址为0x5C
 #define    BH1750_POWER_DOWN   0x00
 #define    BH1750_POWER_ON     0x01
 #define    BH1750_RESET        0x07

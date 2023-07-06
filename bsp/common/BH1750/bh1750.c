@@ -23,15 +23,15 @@
 
 #include "bflb_i2c.h"
 #include "bflb_mtimer.h"
-#include "lm75.h"
+#include "bh1750.h"
 
 
-static uint8_t   Buffer[8];       // ½ÓÊÕÊı¾İ»º´æÇø
+static uint8_t   Buffer[8];       // æ¥æ”¶æ•°æ®ç¼“å­˜åŒº
 
 static struct bflb_device_i2c *i2c0;
 static struct bflb_i2c_msg_s msgs[1];
 
-//Ğ´ÃüÁî
+//å†™å‘½ä»¤
 static void BH1750_WriteOrder(uint8_t REG_Address)
 {
     msgs[0].addr = BH1750_ADDR;             
@@ -43,18 +43,18 @@ static void BH1750_WriteOrder(uint8_t REG_Address)
 }
 
 
-//³õÊ¼»¯BH1750£¬¸ù¾İĞèÒªÇë²Î¿¼pdf½øĞĞĞŞ¸Ä
+//åˆå§‹åŒ–BH1750ï¼Œæ ¹æ®éœ€è¦è¯·å‚è€ƒpdfè¿›è¡Œä¿®æ”¹
 void BH1750_Init()
 {
     i2c0 = bflb_device_get_by_name("i2c0");
     bflb_i2c_init(i2c0,200000);
 
     BH1750_WriteOrder(BH1750_POWER_DOWN);
-    bflb_mtimer_delay_ms(180);                // ÑÓÊ±180ms
+    bflb_mtimer_delay_ms(180);                // å»¶æ—¶180ms
 }
 
 
-//Á¬Ğø¶Á³öBH1750ÄÚ²¿Êı¾İ
+//è¿ç»­è¯»å‡ºBH1750å†…éƒ¨æ•°æ®
 static void BH1750_ReadData(void)
 {
     msgs[0].addr = BH1750_ADDR;             
@@ -67,17 +67,17 @@ static void BH1750_ReadData(void)
 
 float BH1750_GetData(void)
 {
-    uint32_t dataTem;                      // ½á¹ûÖµ
+    uint32_t dataTem;                      // ç»“æœå€¼
     static uint8_t flagInit = 0;
     if(flagInit==0)
     {
         BH1750_WriteOrder(BH1750_POWER_ON);           // power on
         BH1750_WriteOrder(BH1750_CONTINUOUS_HIGH_RES_MODE);           // H- resolution mode
-        bflb_mtimer_delay_ms(180);                     // ÑÓÊ±180ms
+        bflb_mtimer_delay_ms(180);                     // å»¶æ—¶180ms
         flagInit=1;
     }        
-    BH1750_ReadData();                     // ¶ÁÈ¡Ô­Ê¼Êı¾İ£¬´æ´¢ÔÚBufferÖĞ
+    BH1750_ReadData();                     // è¯»å–åŸå§‹æ•°æ®ï¼Œå­˜å‚¨åœ¨Bufferä¸­
     dataTem = Buffer[0];
-    dataTem = (dataTem << 8) + Buffer[1];  // ×ª»»³É½á¹û¹âÇ¿¶ÈÖµ
+    dataTem = (dataTem << 8) + Buffer[1];  // è½¬æ¢æˆç»“æœå…‰å¼ºåº¦å€¼
     return dataTem / 1.2;
 }
