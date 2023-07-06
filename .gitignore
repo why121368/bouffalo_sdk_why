@@ -6,7 +6,7 @@ cscope*
 compile_commands.*
 /components
 /drivers
-/bsp
+# /bsp
 examples/solutions
 examples/wifi
 examples/btble
